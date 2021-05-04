@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.employeepayroll.services.DatabaseEmployeePayrollTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-04T19:10:06" hostname="AVS-1997" time="0.406">
+  <properties/>
+  <testcase name="givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.406"/>
+  <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@c0925e3
+[id=1, salary=1000000.0, name='Bill', startDate=2018-01-03}, id=2, salary=3000000.0, name='Terisa', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', startDate=2020-05-21}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

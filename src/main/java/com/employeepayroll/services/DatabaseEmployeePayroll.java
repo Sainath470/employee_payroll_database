@@ -3,7 +3,7 @@ package com.employeepayroll.services;
 import java.sql.*;
 import java.util.Enumeration;
 
-public class DatabaseEmployeePayroll {
+public class DatabaseEmployeePayroll{
     public static void main(String[] args) {
         String jdbcURL = "jdbc:mysql://localhost:3306/payroll_service?useSSL=false";
         String userName = "root";
@@ -20,6 +20,7 @@ public class DatabaseEmployeePayroll {
         try{
             System.out.println("Connecting to database:"+jdbcURL);
             connection = DriverManager.getConnection(jdbcURL,userName,password);
+
             System.out.println("Connection is successful!!!"+connection);
         }catch (Exception e){
             e.printStackTrace();
