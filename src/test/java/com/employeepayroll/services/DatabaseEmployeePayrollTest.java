@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 class DatabaseEmployeePayrollTest {
     @Test
@@ -45,5 +46,41 @@ class DatabaseEmployeePayrollTest {
         LocalDate endDate = LocalDate.now();
         List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollDataForDataRange(startDate,endDate);
         Assertions.assertEquals(3,employeePayrollData.size());
+    }
+
+    @Test
+    public void givenDateRange_WhenAverageSalaryRetrievedGroupByGender_ShouldReturnAverageSalaryByGender(){
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOServices.DB_IO);
+        Map<String, Double> averageSalaryGroupByGender = employeePayrollService.getAverageSalaryGroupByGender();
+        boolean result = averageSalaryGroupByGender.get("M").equals(2000000.0) && averageSalaryGroupByGender.get("F").equals(300000.0);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenDateRange_WhenMinimumSalaryRetrievedGroupByGender_ShouldReturnMinimumSalaryByGender(){
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOServices.DB_IO);
+        Map<String, Double> minimumSalaryGroupByGender = employeePayrollService.getMinimumSalaryGroupByGender();
+        boolean result = minimumSalaryGroupByGender.get("M").equals(1000000.0) && minimumSalaryGroupByGender.get("F").equals(300000.0);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenDateRange_WhenMaximumSalaryRetrievedGroupByGender_ShouldReturnMaximumSalaryByGender(){
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOServices.DB_IO);
+        Map<String, Double> maximumSalaryGroupByGender = employeePayrollService.getMaximumSalaryGroupByGender();
+        boolean result = maximumSalaryGroupByGender.get("M").equals(3000000.0) && maximumSalaryGroupByGender.get("F").equals(300000.0);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenDateRange_WhenRetrievedGroupByGender_ShouldReturnCountOfEmployeesByGender(){
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOServices.DB_IO);
+        Map<String, Double> countOfEmployeeGroupByGender = employeePayrollService.getCountOfEmployeeGroupByGender();
+        boolean result = countOfEmployeeGroupByGender.get("M").equals(2.0) && countOfEmployeeGroupByGender.get("F").equals(1.0);
+        Assertions.assertTrue(result);
     }
 }

@@ -3,7 +3,9 @@ package com.employeepayroll.services;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmployeePayrollDBService {
 
@@ -235,4 +237,87 @@ public class EmployeePayrollDBService {
         }
         return employeePayrollList;
     }
+
+    public Map<String, Double> readAverageSalaryGroupByGender(){
+        String sql = "SELECT gender, AVG(salary) as salary FROM employee_service GROUP BY gender;";
+        Map<String, Double> averageSalaryGroupByGender = new HashMap<>();
+        try (Connection connection = this.getConnection())
+        {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next())
+            {
+                String gender = resultSet.getString("gender");
+                double salary = resultSet.getDouble("salary");
+                averageSalaryGroupByGender.put(gender, salary);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return averageSalaryGroupByGender;
+    }
+
+    public Map<String, Double> readMinimumSalaryGroupByGender(){
+        String sql = "SELECT gender, MIN(salary) as salary FROM employee_service GROUP BY gender;";
+        Map<String, Double> minimumSalaryGroupByGender = new HashMap<>();
+        try (Connection connection = this.getConnection())
+        {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next())
+            {
+                String gender = resultSet.getString("gender");
+                double salary = resultSet.getDouble("salary");
+                minimumSalaryGroupByGender.put(gender, salary);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return minimumSalaryGroupByGender;
+    }
+
+    public Map<String, Double> readMaximumSalaryGroupByGender() {
+        String sql = "SELECT gender, Max(salary) as salary FROM employee_service GROUP BY gender;";
+        Map<String, Double >maximumSalaryGroupByGender = new HashMap<>();
+        try (Connection connection = this.getConnection())
+        {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next())
+            {
+                String gender = resultSet.getString("gender");
+                double salary = resultSet.getDouble("salary");
+                maximumSalaryGroupByGender.put(gender, salary);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return maximumSalaryGroupByGender;
+    }
+
+    public Map<String, Double> readCountOfEmployeesGroupByGender() {
+        String sql = "SELECT gender, COUNT(*) as count FROM employee_service GROUP BY gender;";
+        Map<String, Double >countOfEmployeeGroupByGender = new HashMap<>();
+        try (Connection connection = this.getConnection())
+        {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next())
+            {
+                String gender = resultSet.getString("gender");
+                double count = resultSet.getDouble("count");
+                countOfEmployeeGroupByGender.put(gender, count);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return countOfEmployeeGroupByGender;
+    }
+
 }
+
+

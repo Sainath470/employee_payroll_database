@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.employeepayroll.services.DatabaseEmployeePayrollTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-05-06T20:33:42" hostname="AVS-1997" time="0.778">
+<testsuite name="com.employeepayroll.services.DatabaseEmployeePayrollTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-06T21:11:02" hostname="AVS-1997" time="0.313">
   <properties/>
-  <testcase name="givenDateRange_WhenRetrieved_ShouldReturnEmployeeCount()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.58"/>
-  <testcase name="givenNewSalaryForEmployee_WhenUpdated_ShouldMatchWithDB()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.124"/>
-  <testcase name="givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.021"/>
-  <testcase name="givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDB()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.047"/>
+  <testcase name="givenDateRange_WhenRetrievedGroupByGender_ShouldReturnCountOfEmployeesByGender()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.313"/>
   <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@d348e41
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@53ec2138
 Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@3367cbee
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@4938e699
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@63615f48
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@1984798e
-[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='999999.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@78a7573a
-[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='999999.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@3963b2ab
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@1734c473
-[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='999999.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@50eafc28
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

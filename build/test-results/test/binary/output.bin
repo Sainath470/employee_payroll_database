@@ -1,19 +1,4 @@
 QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-EConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@d348e41
+FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@53ec2138
 QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@3367cbee
-QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@4938e699
-QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@63615f48
-QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@1984798e
-ò[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='999999.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
-QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@78a7573a
-ò[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='999999.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
-QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@3963b2ab
-QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@1734c473
-ò[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='999999.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
+FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@50eafc28
