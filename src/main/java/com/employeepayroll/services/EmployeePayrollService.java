@@ -1,5 +1,7 @@
 package com.employeepayroll.services;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -8,18 +10,32 @@ public class EmployeePayrollService {
     private List<EmployeePayrollData> employeePayrollList;
     private EmployeePayrollDBService employeePayrollDBService;
 
-    public enum IOServices {CONSOLE_ID, FILE_IO, DB_IO, REST_IO}
+    /**
+     * created ioService enum class for CONSOLE_IO, FILE_IO,DB_IO
+     */
+    public enum IOServices {CONSOLE_ID, DB_IO, FILE_IO, REST_IO}
 
+    //created default constructor for singleton class
     public EmployeePayrollService()
     {
         employeePayrollDBService = EmployeePayrollDBService.getInstance();
     }
 
+    /**
+     * created parameterized constructor
+     * @param employeePayrollList employeePayrollList
+     */
     public EmployeePayrollService(List<EmployeePayrollData> employeePayrollList){
         this();
         this.employeePayrollList = employeePayrollList;
     }
 
+
+    /**
+     * created readEmployeePayrollData method to read data from ioService of database Io
+     * @param ioService ioService
+     * @return this.employeePayrollList
+     */
     public List<EmployeePayrollData> readEmployeePayrollData(IOServices ioService)
     {
         if(ioService.equals(IOServices.DB_IO))
@@ -27,10 +43,22 @@ public class EmployeePayrollService {
         return this.employeePayrollList;
     }
 
+    /**
+     * created checkEmployeePayrollSyncWithDB method to check whether updated data is synced with database or not
+     * @param name name
+     * @return employeePayrollDataList.get(0).equals(getEmployeePayrollData(name))
+     */
     public boolean checkEmployeePayrollInSyncWithDB(String name)
     {
         List<EmployeePayrollData> employeePayrollDataList = employeePayrollDBService.getEmployeePayrollData(name);
         return employeePayrollDataList.equals(employeePayrollDBService.getEmployeePayrollData(name));
+    }
+
+    public List<EmployeePayrollData> readEmployeePayrollDataForDateRange(IOServices ioService, LocalDate startDate, LocalDate endDate)
+    {
+        if (ioService.equals(IOServices.DB_IO))
+            return employeePayrollDBService.getEmployeePayrollDataForDateRange(startDate, endDate);
+        return null;
     }
 
     public void updateEmployeeSalary(String name, Double salary){
@@ -54,5 +82,15 @@ public class EmployeePayrollService {
     private EmployeePayrollData getEmployeePayrollData(String name){
         return this.employeePayrollList.stream().filter(employeePayrollData ->
                 employeePayrollData.name.equals(name)).findFirst().orElse(null);
+    }
+
+    public List<EmployeePayrollData> getEmployeePayrollDataForDateRange(LocalDate startDate, LocalDate endDate)
+    {
+        String sql = String.format("SELECT * FROM  employee_payroll WHERE START BETWEEN '%s' AND '%s';", Date.valueOf(startDate), Date.valueOf(endDate));
+       return (List<EmployeePayrollData>) this.getEmployeePayrollData(sql);
+    }
+
+    public List<EmployeePayrollData> readEmployeePayrollDataForDataRange( LocalDate startDate, LocalDate endDate){
+        return employeePayrollDBService.getEmployeePayrollDataForDateRange(startDate,endDate);
     }
 }
