@@ -1,3 +1,9 @@
 QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-EConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@c0925e3
-»[id=1, salary=1000000.0, name='Bill', startDate=2018-01-03}, id=2, salary=3000000.0, name='Terisa', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', startDate=2020-05-21}]
+FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@1d5dcc0f
+º[id=1, salary=1000000.0, name='Bill', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', startDate=2020-05-21}]
+QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@2f5ad9dc
+QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@1ac0fa38
+QConnecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
+FConnection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@175b0d26
