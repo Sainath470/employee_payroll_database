@@ -43,8 +43,9 @@ public class EmployeePayrollDBService {
                 int id = result.getInt("id");
                 String name = result.getString("name");
                 double salary = result.getDouble("salary");
+                double basicPay = result.getDouble("basic_pay");
                 LocalDate startDate = result.getDate("start").toLocalDate();
-                employeePayrollList.add(new EmployeePayrollData(id,name,salary,startDate));
+                employeePayrollList.add(new EmployeePayrollData(id,name,salary,basicPay,startDate));
             }
             connection.close();
         } catch (SQLException throwables) {
@@ -55,6 +56,21 @@ public class EmployeePayrollDBService {
 
      int updateEmployeePayrollData(String name, Double salary){
         return this.updateEmployeeDataUsingStatement(name,salary);
+    }
+
+    int updateEmployeePayrollDataForBasicPay(String name, double basicPay){
+        return this.updateEmployeeDataUsingStatementForBasicPay(name, basicPay);
+    }
+
+    private int updateEmployeeDataUsingStatementForBasicPay(String name, double basicPay) {
+        String sql = String.format("UPDATE employee_service set basic_pay = %.2f where name = '%s';", basicPay,name);
+        try(Connection connection = this.getConnection()){
+            Statement statement = connection.createStatement();
+            return statement.executeUpdate(sql);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     private int updateEmployeeDataUsingStatement(String name, Double salary){
@@ -75,8 +91,9 @@ public class EmployeePayrollDBService {
             int id = result.getInt("id");
             String name = result.getString("name");
             double salary = result.getDouble("salary");
+            double basicPay = result.getDouble("basic_pay");
             LocalDate startDate = result.getDate("start").toLocalDate();
-            employeePayrollList.add(new EmployeePayrollData(id,name,salary,startDate));
+            employeePayrollList.add(new EmployeePayrollData(id,name,salary,basicPay,startDate));
         }
     } catch (SQLException throwables) {
         throwables.printStackTrace();
