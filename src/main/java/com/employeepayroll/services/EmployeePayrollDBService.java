@@ -12,7 +12,6 @@ public class EmployeePayrollDBService {
     //declared private variables
     private static PreparedStatement employeePayrollDataStatement;
     private static EmployeePayrollDBService employeePayrollDBService;
-    private PreparedStatement updateEmployeeSalary;
 
     //created  default constructor
     public EmployeePayrollDBService() {
@@ -20,7 +19,7 @@ public class EmployeePayrollDBService {
 
     /**
      * create singleton design principle to get single instance
-     * @return eemployeePayrollDBService
+     * @return employeePayrollDBService
      */
     public static EmployeePayrollDBService getInstance(){
         if(employeePayrollDBService == null)
@@ -31,7 +30,7 @@ public class EmployeePayrollDBService {
     /**
      * created getConnection() method to make connection with mysql database
      * @return connection
-     * @throws SQLException
+     * @throws SQLException sql exception
      */
     private Connection getConnection() throws SQLException {
         String jdbcURL = "jdbc:mysql://localhost:3306/payroll_service?useSSL=false";
@@ -50,26 +49,21 @@ public class EmployeePayrollDBService {
      * @return employeePayrollList
      */
     public List<EmployeePayrollData> readData() {
-        String sql = "SELECT * FROM employee_service";
-        List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
-        try {
-            Connection connection = this.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(sql);
-            while(result.next()){
-                int id = result.getInt("id");
-                String name = result.getString("name");
-                double salary = result.getDouble("salary");
-                double basicPay = result.getDouble("basic_pay");
-                LocalDate startDate = result.getDate("start").toLocalDate();
-                employeePayrollList.add(new EmployeePayrollData(id,name,salary,basicPay,startDate));
-            }
-            connection.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return employeePayrollList;
+        String sql = "SELECT * FROM employee_service;";
+        return this.getEmployeePayrollDataUsingDB(sql);
     }
+//        List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
+//        try {
+//            Connection connection = this.getConnection();
+//            Statement statement = connection.createStatement();
+//            ResultSet result = statement.executeQuery(sql);
+//
+//            connection.close();
+//        } catch (SQLException throwable) {
+//            throwable.printStackTrace();
+//        }
+//        return employeePayrollList;
+//    }
 
     /**
      * created getEmployeePayrollDataForDateRange method to retrieve data from database for particular date range
@@ -85,7 +79,7 @@ public class EmployeePayrollDBService {
 
     /**
      * created getEmployeePayrollDataUsingDB() method to retrieve data from database
-     * by tabking sql query as input
+     * by taking sql query as input
      * @param sql getEmployeePayrollDateRange
      * @return employeePayrollList
      */
@@ -120,7 +114,7 @@ public class EmployeePayrollDBService {
      * @param basicPay takes input
      * @return values to updateEmployeeDataUsingStatementForBasicPay method
      */
-    int updateEmployeePayrollDataForBasicPay(String name, double basicPay){
+    public int updateEmployeePayrollDataForBasicPay(String name, double basicPay){
         return this.updateEmployeeDataUsingStatementForBasicPay(name, basicPay);
     }
 
@@ -194,10 +188,10 @@ public class EmployeePayrollDBService {
                 double salary = result.getDouble("salary");
                 double basicPay = result.getDouble("basic_pay");
                 LocalDate startDate = result.getDate("start").toLocalDate();
-                employeePayrollList.add(new EmployeePayrollData(id,name,salary,basicPay,startDate));
+                employeePayrollList.add(new EmployeePayrollData(id,name,salary,startDate));
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
         return employeePayrollList;
     }
@@ -230,7 +224,7 @@ public class EmployeePayrollDBService {
                 double  basic_pay = resultSet.getDouble("basic_pay");
                 double salary = resultSet.getDouble("salary");
                 LocalDate startDate = resultSet.getDate("start").toLocalDate();
-                employeePayrollList.add(new EmployeePayrollData(id, name, salary, basic_pay, startDate));
+                employeePayrollList.add(new EmployeePayrollData(id, name, salary,  startDate));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -318,6 +312,25 @@ public class EmployeePayrollDBService {
         return countOfEmployeeGroupByGender;
     }
 
+    public EmployeePayrollData addEmployeePayroll(String name, double salary, LocalDate start, String gender){
+        int employeeId = -1;
+        EmployeePayrollData employeePayrollData = null;
+        String sql = String.format("INSERT INTO employee_service (name, salary,start,gender)" +
+                "VALUES ( '%s','%s','%s','%s')", name ,gender,salary,start);
+        try(Connection connection = this.getConnection()){
+            Statement statement = connection.createStatement();
+            int rowAffected = statement.executeUpdate(sql, statement.RETURN_GENERATED_KEYS);
+            if(rowAffected == 1){
+                ResultSet resultSet = statement.getGeneratedKeys();
+                    if(resultSet.next())
+                        employeeId = resultSet.getInt(1);
+            }
+            employeePayrollData = new EmployeePayrollData( employeeId,name,salary, start);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return employeePayrollData;
+    }
 }
 
 

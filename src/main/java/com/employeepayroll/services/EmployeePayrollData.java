@@ -16,15 +16,14 @@ public class EmployeePayrollData {
      * @param id id
      * @param name name
      * @param salary salary
-     * @param basicPay basicPay
      */
-    public EmployeePayrollData(int id, String name, double salary, double basicPay, LocalDate startDate) {
+    public EmployeePayrollData(int id, String name, double salary, LocalDate startDate) {
         this.id = id;
         this.name = name;
         this.salary = salary;
-        this.basicPay = basicPay;
         this.startDate = startDate;
     }
+
 
     //overriding toString method
     @Override
@@ -38,7 +37,7 @@ public class EmployeePayrollData {
                 '}';
     }
 
-    //Overiding equals method
+    //Overriding equals method
     @Override
     public boolean equals(Object o)
     {

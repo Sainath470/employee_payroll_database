@@ -71,11 +71,11 @@ public class EmployeePayrollService {
             employeePayrollData.salary = salary;
     }
 
-    public void updateEmployeeBasicPay(String name, Double basic_pay){
-        int result = employeePayrollDBService.updateEmployeePayrollDataForBasicPay(name,basic_pay);
+    public void updateEmployeeBasicPay(String name, Double basic_pay) {
+        int result = employeePayrollDBService.updateEmployeePayrollDataForBasicPay(name, basic_pay);
         if (result == 0) return;
         EmployeePayrollData employeePayrollData;
-        employeePayrollData= this.getEmployeePayrollData(name);
+        employeePayrollData = this.getEmployeePayrollData(name);
         if (employeePayrollData != null)
             employeePayrollData.basicPay = basic_pay;
     }
@@ -85,11 +85,6 @@ public class EmployeePayrollService {
                 employeePayrollData.name.equals(name)).findFirst().orElse(null);
     }
 
-    public List<EmployeePayrollData> getEmployeePayrollDataForDateRange(LocalDate startDate, LocalDate endDate)
-    {
-        String sql = String.format("SELECT * FROM  employee_payroll WHERE START BETWEEN '%s' AND '%s';", Date.valueOf(startDate), Date.valueOf(endDate));
-       return (List<EmployeePayrollData>) this.getEmployeePayrollData(sql);
-    }
 
     public List<EmployeePayrollData> readEmployeePayrollDataForDataRange( LocalDate startDate, LocalDate endDate){
         return employeePayrollDBService.getEmployeePayrollDataForDateRange(startDate,endDate);
@@ -109,5 +104,9 @@ public class EmployeePayrollService {
 
     public Map<String, Double> getCountOfEmployeeGroupByGender(){
         return employeePayrollDBService.readCountOfEmployeesGroupByGender();
+    }
+
+    public void addEmployeeToPayroll(String name, double salary, LocalDate start, String gender){
+        employeePayrollList.add(employeePayrollDBService.addEmployeePayroll(name, salary, start,gender));
     }
 }

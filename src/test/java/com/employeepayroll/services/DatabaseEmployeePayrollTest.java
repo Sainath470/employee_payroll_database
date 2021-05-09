@@ -42,7 +42,7 @@ class DatabaseEmployeePayrollTest {
     public void givenDateRange_WhenRetrieved_ShouldReturnEmployeeCount(){
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOServices.DB_IO);
-        LocalDate startDate = LocalDate.of(2018,01,01);
+        LocalDate startDate = LocalDate.of(2018, 1,1);
         LocalDate endDate = LocalDate.now();
         List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollDataForDataRange(startDate,endDate);
         Assertions.assertEquals(3,employeePayrollData.size());
@@ -81,6 +81,16 @@ class DatabaseEmployeePayrollTest {
         employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOServices.DB_IO);
         Map<String, Double> countOfEmployeeGroupByGender = employeePayrollService.getCountOfEmployeeGroupByGender();
         boolean result = countOfEmployeeGroupByGender.get("M").equals(2.0) && countOfEmployeeGroupByGender.get("F").equals(1.0);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenNewEmployeeDetails_WhenGiven_ShouldBeAddedInDB_AndShouldSyncWithDb(){
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOServices.DB_IO);
+        employeePayrollService.addEmployeeToPayroll("Bob", 400000.0,LocalDate.now(),"M");
+        boolean result = employeePayrollService.checkEmployeePayrollInSyncWithDB("Bob");
+        System.out.println(employeePayrollData);
         Assertions.assertTrue(result);
     }
 }
