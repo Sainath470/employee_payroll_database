@@ -1,23 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.employeepayroll.services.DatabaseEmployeePayrollTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-09T13:16:26" hostname="AVS-1997" time="0.829">
+<testsuite name="com.employeepayroll.services.DatabaseEmployeePayrollTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-05-16T17:33:55" hostname="AVS-1997" time="1.167">
   <properties/>
-  <testcase name="givenNewEmployeeDetails_WhenGiven_ShouldBeAddedInDB_AndShouldSyncWithDb()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.829"/>
-  <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@323c50d5
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@2230d330
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@175b0d26
+  <testcase name="givenDateRange_WhenRetrieved_ShouldReturnEmployeeCount()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.78"/>
+  <testcase name="givenDateRange_WhenMinimumSalaryRetrievedGroupByGender_ShouldReturnMinimumSalaryByGender()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.065"/>
+  <testcase name="givenNewSalaryForEmployee_WhenUpdated_ShouldMatchWithDB()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.126"/>
+  <testcase name="givenNewEmployeeDetails_WhenGiven_ShouldBeAddedInDB_AndShouldSyncWithDb()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.084"/>
+  <testcase name="givenDateRange_WhenAverageSalaryRetrievedGroupByGender_ShouldReturnAverageSalaryByGender()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.028"/>
+  <testcase name="givenDateRange_WhenMaximumSalaryRetrievedGroupByGender_ShouldReturnMaximumSalaryByGender()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.02"/>
+  <testcase name="givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.014"/>
+  <testcase name="givenDateRange_WhenRetrievedGroupByGender_ShouldReturnCountOfEmployeesByGender()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.02"/>
+  <testcase name="givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDB()" classname="com.employeepayroll.services.DatabaseEmployeePayrollTest" time="0.019"/>
+  <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@fa0d516
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@4052c42f
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@1984798e
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@2032bfb9
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@4e968e6c
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@77381fc1
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@54797e3f
+[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='300000.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@6a940b4b
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@32db21b2
 [id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='0.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}, null]
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@25aae91f
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@5e212969
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@722cfd71
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@72d7208d
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@3270cd84
+[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='0.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@a8393a3
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@7acc2574
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@694ccbdf
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@37fc3e96
+[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='0.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
 ]]></system-out>
-  <system-err><![CDATA[java.sql.SQLException: Data truncated for column 'salary' at row 1
+  <system-err><![CDATA[java.sql.SQLException: Field 'deductions' doesn't have a default value
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
 	at com.mysql.cj.jdbc.StatementImpl.executeUpdateInternal(StatementImpl.java:1333)
 	at com.mysql.cj.jdbc.StatementImpl.executeLargeUpdate(StatementImpl.java:2111)
 	at com.mysql.cj.jdbc.StatementImpl.executeUpdate(StatementImpl.java:1338)
-	at com.employeepayroll.services.EmployeePayrollDBService.addEmployeePayroll(EmployeePayrollDBService.java:322)
-	at com.employeepayroll.services.EmployeePayrollService.addEmployeeToPayroll(EmployeePayrollService.java:110)
+	at com.employeepayroll.services.EmployeePayrollDBService.addEmployeePayroll(EmployeePayrollDBService.java:320)
+	at com.employeepayroll.services.EmployeePayrollService.addEmployeeToPayroll(EmployeePayrollService.java:109)
 	at com.employeepayroll.services.DatabaseEmployeePayrollTest.givenNewEmployeeDetails_WhenGiven_ShouldBeAddedInDB_AndShouldSyncWithDb(DatabaseEmployeePayrollTest.java:91)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)

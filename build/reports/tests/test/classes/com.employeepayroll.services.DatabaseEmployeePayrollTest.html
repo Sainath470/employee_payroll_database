@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">9</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.829s</div>
+<div class="counter">1.156s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,8 +81,48 @@
 </tr>
 </thead>
 <tr>
+<td class="success">givenDateRange_WhenAverageSalaryRetrievedGroupByGender_ShouldReturnAverageSalaryByGender()</td>
+<td class="success">0.028s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenDateRange_WhenMaximumSalaryRetrievedGroupByGender_ShouldReturnMaximumSalaryByGender()</td>
+<td class="success">0.020s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenDateRange_WhenMinimumSalaryRetrievedGroupByGender_ShouldReturnMinimumSalaryByGender()</td>
+<td class="success">0.065s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenDateRange_WhenRetrievedGroupByGender_ShouldReturnCountOfEmployeesByGender()</td>
+<td class="success">0.020s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenDateRange_WhenRetrieved_ShouldReturnEmployeeCount()</td>
+<td class="success">0.780s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount()</td>
+<td class="success">0.014s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">givenNewEmployeeDetails_WhenGiven_ShouldBeAddedInDB_AndShouldSyncWithDb()</td>
-<td class="success">0.829s</td>
+<td class="success">0.084s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenNewSalaryForEmployee_WhenUpdated_ShouldMatchWithDB()</td>
+<td class="success">0.126s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDB()</td>
+<td class="success">0.019s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -90,27 +130,60 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@323c50d5
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@2230d330
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service?useSSL=false
-Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@175b0d26
+<pre>Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@fa0d516
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@4052c42f
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@1984798e
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@2032bfb9
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@4e968e6c
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@77381fc1
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@54797e3f
+[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='300000.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@6a940b4b
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@32db21b2
 [id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='0.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}, null]
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@25aae91f
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@5e212969
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@722cfd71
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@72d7208d
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@3270cd84
+[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='0.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@a8393a3
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@7acc2574
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@694ccbdf
+Connecting to database:jdbc:mysql://localhost:3306/employee_payroll_service?useSSL=false
+Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@37fc3e96
+[id=1, salary=1000000.0, name='Bill', Basic Pay='0.0', startDate=2018-01-03}, id=2, salary=300000.0, name='Terisa', Basic Pay='0.0', startDate=2019-11-13}, id=3, salary=3000000.0, name='Charlie', Basic Pay='0.0', startDate=2020-05-21}]
 </pre>
 </span>
 </div>
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>java.sql.SQLException: Data truncated for column 'salary' at row 1
+<pre>java.sql.SQLException: Field 'deductions' doesn't have a default value
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
 	at com.mysql.cj.jdbc.StatementImpl.executeUpdateInternal(StatementImpl.java:1333)
 	at com.mysql.cj.jdbc.StatementImpl.executeLargeUpdate(StatementImpl.java:2111)
 	at com.mysql.cj.jdbc.StatementImpl.executeUpdate(StatementImpl.java:1338)
-	at com.employeepayroll.services.EmployeePayrollDBService.addEmployeePayroll(EmployeePayrollDBService.java:322)
-	at com.employeepayroll.services.EmployeePayrollService.addEmployeeToPayroll(EmployeePayrollService.java:110)
+	at com.employeepayroll.services.EmployeePayrollDBService.addEmployeePayroll(EmployeePayrollDBService.java:320)
+	at com.employeepayroll.services.EmployeePayrollService.addEmployeeToPayroll(EmployeePayrollService.java:109)
 	at com.employeepayroll.services.DatabaseEmployeePayrollTest.givenNewEmployeeDetails_WhenGiven_ShouldBeAddedInDB_AndShouldSyncWithDb(DatabaseEmployeePayrollTest.java:91)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -211,7 +284,7 @@ Connection is successful!!!com.mysql.cj.jdbc.ConnectionImpl@175b0d26
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.7</a> at May 9, 2021, 6:46:27 PM</p>
+<a href="http://www.gradle.org">Gradle 6.7</a> at May 16, 2021, 11:03:56 PM</p>
 </div>
 </div>
 </body>

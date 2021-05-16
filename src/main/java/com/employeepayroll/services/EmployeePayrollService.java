@@ -1,6 +1,5 @@
 package com.employeepayroll.services;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -106,7 +105,7 @@ public class EmployeePayrollService {
         return employeePayrollDBService.readCountOfEmployeesGroupByGender();
     }
 
-    public void addEmployeeToPayroll(String name, double salary, LocalDate start, String gender){
-        employeePayrollList.add(employeePayrollDBService.addEmployeePayroll(name, salary, start,gender));
+    public void addEmployeeToPayroll(String name, double basic_pay, LocalDate start, String gender){
+        employeePayrollList.add(employeePayrollDBService.addEmployeePayroll(name, basic_pay, start,gender));
     }
 }

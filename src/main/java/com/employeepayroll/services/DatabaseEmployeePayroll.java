@@ -6,7 +6,7 @@ import java.util.Enumeration;
 public class DatabaseEmployeePayroll{
     public static void main(String[] args) {
         //declared jdbcUrl, username, password
-        String jdbcURL = "jdbc:mysql://localhost:3306/payroll_service?useSSL=false";
+        String jdbcURL = "jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&useSSL=false";
         String userName = "root";
         String password = "Sainath@8801";
         Connection connection;
